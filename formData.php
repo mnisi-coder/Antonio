@@ -1,10 +1,13 @@
 <?php
-					
+
+session_start();
 require "dbconnection.php";
 
-                            $stdNum = "216448154";
-							$email= "JAli@gmail.com";
-							$name="JAli Mnisi";
+
+
+                            $stdNum = $_SESSION['stdNumber'];
+							$email= $_SESSION['email'];
+							$name=$_SESSION['name'];
 							$originCampus= $_POST['originCampus'];
                             $destCampus=$_POST['destCampus'];
 							$a=$_POST['date'];
@@ -39,12 +42,12 @@ require "dbconnection.php";
 															echo'<div class="alert alert-success" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button><span><strong>Session Successfully Booked for -</strong></span><span>'.$time.':00</span></div>';
 															echo'<a class="text-decoration-none" data-dismiss="modal" data-toggle="modal" data-target="#signin" href="#">';
 														
-                                                            echo '<script language="javascript">document.location="index.php";</script>';
+                                                            echo '<script language="javascript">document.location="index";</script>';
                                                         }
 														else
 														{
 															echo "<script>alert('Booking was not successful');</script>";
-                                                            echo '<script language="javascript">document.location="book.php";</script>';
+                                                            echo '<script language="javascript">document.location="book";</script>';
 
                                                            
 														}
