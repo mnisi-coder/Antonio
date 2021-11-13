@@ -39,6 +39,9 @@
             <a class="nav-link" href="book">Book A Seat</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="profile">Profile</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="logout">logout</a>
           </li>
         </ul>

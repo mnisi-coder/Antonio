@@ -42,7 +42,7 @@ require "dbconnection.php";
 															echo'<div class="alert alert-success" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button><span><strong>Session Successfully Booked for -</strong></span><span>'.$time.':00</span></div>';
 															echo'<a class="text-decoration-none" data-dismiss="modal" data-toggle="modal" data-target="#signin" href="#">';
 														
-                                                            echo '<script language="javascript">document.location="index";</script>';
+                                                            echo '<script language="javascript">document.location="profile";</script>';
                                                         }
 														else
 														{

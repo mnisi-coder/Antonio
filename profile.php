@@ -32,7 +32,7 @@ require("dbconnection.php");
         </div>
         <div class="col-md-6">
             <div class="p-3 py-5">
-                <div class="d-flex justify-content-between align-items-center experience"><span>Bus tickets</span><span class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;Experience</span></div><br>
+                <div class="d-flex justify-content-between align-items-center experience"><span>Bus tickets</span><span class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;Active Ticket</span></div><br>
                 <table class="table table-sm">
   <thead>
     <tr>
