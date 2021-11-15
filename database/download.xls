@@ -1,0 +1,44 @@
+
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+
+	<div class="table-responsive">
+<br />
+<b>Warning</b>:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in <b>C:\xampp\htdocs\bus\admin\pdf.php</b> on line <b>33</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\xampp\htdocs\bus\admin\pdf.php</b> on line <b>36</b><br />
+
+		
+	<table width="200" border="1">
+  <tbody>
+    <tr>
+	<th>Sno.</th>
+        <th class="hidden-phone">First Name</th>
+        <th> Last Name</th>
+        <th> Email Id</th>
+        <th>Contact no.</th>
+        <th>Reg. Date</th>
+		</tr>
+		
+    
+	</tbody></table>
+		
+	<table width="200" border="1">
+  <tbody>
+    <tr>
+	<th>Sno.</th>
+        <th class="hidden-phone">First Name</th>
+        <th> Last Name</th>
+        <th> Email Id</th>
+        <th>Contact no.</th>
+        <th>Reg. Date</th>
+		</tr>
+		
+    
+	</tbody></table>		
+	</div>

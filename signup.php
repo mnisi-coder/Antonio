@@ -2,6 +2,7 @@
 session_start();
 require("dbconnection.php");			
 
+
 		
 	$find = $_POST['email'];
 		   $stdExist="SELECT * FROM student WHERE stdNumber =  ".$find ;
@@ -14,7 +15,7 @@ require("dbconnection.php");
 			   if(filter_var($_POST['email'],FILTER_VALIDATE_EMAIL))
 				   {
 				       
-					   $phone = strip_tags(htmlspecialchars($_POST['cellPhone']));
+					   
 					if( $_POST['stdNumber'] )
 					{
 							$name = strip_tags(htmlspecialchars($_POST['name']));

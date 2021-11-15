@@ -285,7 +285,8 @@ footer a {
 			
 			<input type="email" name="email" placeholder="Email" />
 			<input type="password" name="password" placeholder="Password" />
-			
+			<label>Are you an Admin(tick the box)
+			<input type="checkbox" name="role" id="role" value="admin"></label>
 			<button  type="submit">Sign In</button>
 		</form>
 	</div>
@@ -300,6 +301,8 @@ footer a {
 				<h1>Hi!, Student!</h1>
 				<p>Enter your personal details and get a ride with us</p>
 				<button class="ghost" id="signUp">Sign Up</button>
+
+				
 			</div>
 		</div>
 	</div>

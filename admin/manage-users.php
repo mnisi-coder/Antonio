@@ -67,11 +67,10 @@ echo "<script>alert('Data deleted');</script>";
                               <thead>
                               <tr>
                                   <th>Sno.</th>
-                                  <th class="hidden-phone">First Name</th>
-                                  <th> Last Name</th>
+                                  <th class="hidden-phone">Full Name</th>
+                                  <th> Student Nuber</th>
                                   <th> Email Id</th>
-                                  <th>Contact no.</th>
-                                  <th>Reg. Date</th>
+                                
 								  
 								  
                               </tr>
@@ -85,17 +84,16 @@ echo "<script>alert('Data deleted');</script>";
 		
 								if(empty($_POST['search']))
 								  {
-									 		  $ret=mysqli_query($con,"select * from users a, student_records b WHERE a.stdNum = b.stdNum");
+									 		  $ret=mysqli_query($con,"select * from student");
 											  $cnt=1;
 											  while($row=mysqli_fetch_array($ret))
 											  {
 												  echo'<tr>';
 												  echo'<td>'.$cnt.'</td>';
 												  echo'<td>'.$row['name'].'</td>';
-												  echo'<td>'.$row['SName'].'</td>';
+												  echo'<td>'.$row['stdNumber'].'</td>';
 												  echo'<td>'.$row['email'].'</td>';
-												  echo'<td>'.$row['contactno'].'</td>';  
-													echo'<td>'.$row['posting_date'].'</td>';
+												  
 													echo'<td>';
 
 														 echo'<a href="update-profile.php?uid='.$row['email'].'"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></a>'; 

@@ -31,136 +31,7 @@ if(isset($_GET['id']))
 	  
 	  
 	  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-	  <script type="text/javascript">
-      google.charts.load("current", {packages:["corechart"]});
-      google.charts.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-			<?php
-			$select2 = "SELECT COUNT(id) AS num FROM businesdata ";
-				$quiry3 = mysqli_query($con,$select2);
-				$lineT = mysqli_fetch_array($quiry3);
-			
-			$happy = "SELECT COUNT(id) AS happy FROM businesdata WHERE rating = 5";
-				 $quiry4 = mysqli_query($con,$happy);
-				$line1 = mysqli_fetch_array($quiry4);
-			
-				$percentageH = $line1['happy']/$lineT['num'] *100;
-			
-	
-      	
-	
-			
-				$midHappy = "SELECT COUNT(id) AS midHappy FROM businesdata WHERE rating = 4";
-				 $quiry5 = mysqli_query($con,$midHappy);
-				$line2 = mysqli_fetch_array($quiry5);
-				
-				$percentageNH = $line2['midHappy']/$lineT['num'] *100;
-
-		
-				$notSure = "SELECT COUNT(id) AS notSure FROM businesdata WHERE rating = 3";
-				 $quiry6 = mysqli_query($con,$notSure);
-				$line3 = mysqli_fetch_array($quiry6);
-				
-				$percentageM = $line3['notSure']/$lineT['num'] *100;
-			
-				
-				$angry = "SELECT COUNT(id) AS angry FROM businesdata WHERE rating = 2";
-				 $quiry7 = mysqli_query($con,$angry);
-				$line4 = mysqli_fetch_array($quiry7);
-				
-				$percentageA = $line4['angry']/$lineT['num'] *100;
-			
-				$Vangry = "SELECT COUNT(id) AS Vangry FROM businesdata WHERE rating = 1";
-				 $quiry8 = mysqli_query($con,$Vangry);
-				$line5 = mysqli_fetch_array($quiry8);
-				
-				$percentageVA = $line5['Vangry']/$lineT['num'] *100;
-			
-				
-			
-		
-      	
-			
-			
-          echo "['Response', 'Precentage'],";
-          echo "['Very Happy',".$percentageH."],";
-          echo "['Happy',".$percentageNH."],";
-          echo "['Not Sure',".$percentageM."],";
-          echo "['Not Happy',".$percentageA."],";
-          echo "['Not Angry',".$percentageVA."]";
-			
-			?>
-        ]);
-
-        var options = {
-          title: 'Overall Percentage',
-          is3D: true,
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
-        chart.draw(data, options);
-      }
-    </script>  
-	 <!--Bar graph -->
-	  
-	  <script>
-	  
-	  google.charts.load('current', {packages: ['corechart', 'bar']});
-google.charts.setOnLoadCallback(drawBasic);
-
-function drawBasic() {
-
-      var data = google.visualization.arrayToDataTable([
-		  
-		  <?php
-		  
-		  $select = "SELECT COUNT(stdNum) AS number FROM booking WHERE postedDate = CURDATE() ";
-										  $quiryt = mysqli_query($con,$select);
-					  					  $today = mysqli_fetch_array($quiryt);
-					  						
-		  $select = "SELECT COUNT(stdNum) AS number FROM booking WHERE postedDate = CURDATE()-1 ";
-										  $quiryY = mysqli_query($con,$select);
-					  					  $yest = mysqli_fetch_array($quiryY);
-					  					
-		  
-		  $select = "SELECT COUNT(stdNum) AS number FROM booking WHERE postedDate = CURDATE()-2 ";
-										  $quiryD = mysqli_query($con,$select);
-					  					  $dayB = mysqli_fetch_array($quiryD);
-					  					$dayB['number'];
-		  $select = "SELECT COUNT(stdNum) AS number FROM booking WHERE postedDate = CURDATE()-3 ";
-										  $quiryDB = mysqli_query($con,$select);
-					  					  $daybb = mysqli_fetch_array($quiryDB);
-					  					
-		  
-
-       echo " ['Days', 'Number of Bookings.',{ role: 'style' }],";
-        echo "['Today',". $today['number'].",'color: #76A7FA'],";
-        echo "['Yesterday',". $yest['number'].",'opacity: 0.2'],";
-       echo " ['Day Before Yesterday',". $dayB['number'].",'stroke-color: #703593; stroke-width: 4; fill-color: #C5A5CF'],";
-        echo "['3 Days Ago',". $daybb['number'].",'stroke-color: #871B47; stroke-opacity: 0.6; stroke-width: 8; fill-color: #BC5679; fill-opacity: 0.2']";
-		
-		  
-		  ?>
-      ]);
-
-      var options = {
-        title: 'Number of Booking per day',
-        chartArea: {width: '50%'},
-        hAxis: {
-          title: 'Total Response',
-          minValue: 0
-        },
-        vAxis: {
-          title: 'City'
-        }
-      };
-
-      var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-
-      chart.draw(data, options);
-    }
-	  </script>
+	 
 	  
 	  
 	  
@@ -170,7 +41,7 @@ function drawBasic() {
 	?>
       <section id="main-content">
           <section class="wrapper">
-          	<h3 align="center"><i class="fa fa"></i>MENTORS BOOKINGS</h3>
+          	<h3 align="center"><i class="fa fa"></i>BUS BOOKINGS</h3>
 				<div class="row">
 				
                   
@@ -178,19 +49,21 @@ function drawBasic() {
                   <div class="col-md-12">
                       <div class="content-panel">
                           <table class="table table-striped table-advance table-hover">
-	                  	  	  <h4><i class="fa fa-"></i> All Residence Complaints</h4>
+	                  	  	  <h4><i class="fa fa-"></i> All Bookings</h4>
 	                  	  	  <hr>
                               <thead>
                               <tr>
                                   <th>Queue No.</th>
+                                  <th>name</th>
                                   <th class="hidden-phone">Student Number</th>
-                                  <th>Session Date</th>
-                                  <th>Contact Details</th>
-								  <th>Session Details</th>
-								  <th>First Name</th>
-								  <th>Posted Date</th>
-								  <th>Mentor Responsible</th>
-								  <th align="center">Change status</th>
+                                  <th>Booking Date</th>
+                                  <th>Origin</th>
+                                  <th>Destination</th>
+                                  <th>Time</th>
+                                  <th>Reference</th>
+                                  <th>email</th>
+                                  <th align="center">status</th>
+                                  <th align="center">Change status</th>
 								  
                               </tr>
                               </thead>
@@ -201,21 +74,22 @@ function drawBasic() {
 							  {?>
                               <tr>
                               <td><?php echo $cnt;?></td>
-                                  <td><?php echo $row['stdNum'];?></td>
-                                  <td><?php echo $row['time'];?></td>
-                                  <td><?php echo $row['cellPhone'];?></td>
-                                  <td><?php echo $row['sessionDetails'];?></td>
-								  <td><?php echo $row['name'];?></td>
-								  <td><?php echo $row['postedDate'];?></td>
-								  <td><?php echo $row['Mentor'];?></td>
+                              <td><?php echo $row['name'];?></td>
+                                  <td><?php echo $row['stdNumber'];?></td>
+                                  <td><?php echo $row['bookingDate'];?></td>
+                                  <td><?php echo $row['origin'];?></td>
+                                  <td><?php echo $row['destination'];?></td>
+								  <td><?php echo $row['time'];?></td>
+								  <td><?php echo $row['reference'];?></td>
+								  <td><?php echo $row['email'];?></td>
 								  
 								 
 								 
-								   <?php if($row['Status']== "approved" ||$row['Status']== "Approved" || $row['Status']== "APPROVED")
+								   <?php if($row['status']== "Boarder" ||$row['status']== "boarded" || $row['status']== "BOARDED")
 								  {
-								  	echo '<td style="color: aliceblue; background: green;">'.$row['Status'].'</td>';
+								  	echo '<td style="color: aliceblue; background: green;">'.$row['status'].'</td>';
 								  }else{
-								  		echo '<td style="color: aliceblue; background: red;">'.$row['Status'].'</td>';
+								  		echo '<td style="color: aliceblue; background: red;">'.$row['status'].'</td>';
 							  } ?>
 						
                                   <td align="center">

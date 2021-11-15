@@ -40,12 +40,7 @@
               	  <p class="centered"><a href="#"><img src="assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
               	  <h5 class="centered"><?php echo $_SESSION['login'];?></h5>
               	  	
-                  <li class="mt">
-                      <a href="change-password.php">
-                          <i class="fa fa-file"></i>
-                          <span>Change Password</span>
-                      </a>
-                  </li>
+                
 
                   <li class="sub-menu">
                       <a href="manage-users.php" >
@@ -57,26 +52,13 @@
 				<li class="sub-menu">
                       <a href="studentRecords.php" >
                           <i class="fa fa-users"></i>
-                          <span>Student Records</span>
+                          <span>Board a Student</span>
                       </a>
                    
 				  </li>
 				 
 				  
-				  <li class="sub-menu">
-                      <a href="newsUpdate.php" >
-                          <i class="fa fa-users"></i>
-                          <span>Update News</span>
-                      </a>
-                   
-                  </li>
-				  <li class="sub-menu">
-                      <a href="labSchedule.php" >
-                          <i class="fa fa-users"></i>
-                          <span>Lab Schedule</span>
-                      </a>
-                   
-                  </li>
+				  
 				  <li class="sub-menu">
                       <a href="booking.php" >
                           <i class="fa fa-users"></i>
@@ -84,35 +66,6 @@
                       </a>
                    
                   </li>
-				  <li class="sub-menu">
-                      <a href="updateStructure.php" >
-                          <i class="fa fa-users"></i>
-                          <span>Update Residence Structure</span>
-                      </a>
-                   
-                  </li>
-                 
-				  <li class="sub-menu">
-                      <a href="complaints.php" >
-                          <i class="fa fa-users"></i>
-                          <span>Check Complaints</span>
-                      </a>
-                   
-                  </li>
-                 <li class="sub-menu">
-                      <a href="maleres.php" >
-                          <i class="fa fa-users"></i>
-                          <span>Male Residence</span>
-                      </a>
-                   
-                  </li>
-				   <li class="sub-menu">
-                      <a href="residence.php" >
-                          <i class="fa fa-users"></i>
-                          <span>Female Residence</span>
-                      </a>
-                   
-				  </li>
               </ul>
           </div>
       </aside>
