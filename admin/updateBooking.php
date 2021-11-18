@@ -7,16 +7,12 @@ check_login();
 if(isset($_POST['Submit']))
 {
 	$id=$_GET['uid'];
-	$stdNum=$_POST['stdNum'];
-	$name = $_POST['name'];
-	$time = $_POST['time'];
-	$sessionDetails=$_POST['sessionDetails'];
-	$Status=$_POST['Status'];
-	$date=$_POST['postedDate'];
-	$Mentor=$_POST['Mentor'];
-	$cellPhone=$_POST['cellPhone'];
 	
-	mysqli_query($con,"UPDATE booking SET id='$id' ,stdNum='$stdNum',time='$time', cellPhone='$cellPhone',sessionDetails='$sessionDetails', name='$name', postedDate='$date', Status='$Status', Mentor='$Mentor' where id='".$_GET['uid']."'");
+	$Status=$_POST['Status'];
+	
+
+	
+	mysqli_query($con,"UPDATE booking SET  status='$Status' where id='".$_GET['uid']."'");
 $_SESSION['msg']="Booking Updated successfully";
 }
 ?>
@@ -45,13 +41,13 @@ $_SESSION['msg']="Booking Updated successfully";
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Student Number </label>
                               <div class="col-sm-10">
-                                  <input type="text" class="form-control" name="stdNum" value="<?php echo $row['stdNum'];?>" readonly>
+                                  <input type="text" class="form-control" name="stdNum" value="<?php echo $row['stdNumber'];?>" readonly>
                               </div>
                           </div>
          
 							 
                               <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">First name</label>
+                              <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Full name</label>
                               <div class="col-sm-10">
                                   <input type="text" class="form-control" name="name" value="<?php echo $row['name'];?>"readonly >
                               </div>
@@ -59,36 +55,36 @@ $_SESSION['msg']="Booking Updated successfully";
                           
 						  
 							   <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Cell Phone</label>
+                              <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Reference</label>
                               <div class="col-sm-10">
-                                  <input type="text" class="form-control" name="cellPhone" value="<?php echo $row['cellPhone'];?>"readonly >
+                                  <input type="text" class="form-control" name="cellPhone" value="<?php echo $row['reference'];?>"readonly >
                               </div>
                           </div>
 							   
                               <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Session Date </label>
+                              <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Bus Time </label>
                               <div class="col-sm-10">
-                                  <input type="text" class="form-control" name="time" value="<?php echo $row['time'];?>" >
+                                  <input type="text" class="form-control" name="time" value="<?php echo $row['time'];?>:00" readonly>
                               </div>
                           </div>
                                <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">session Details </label>
+                              <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Origin </label>
                               <div class="col-sm-10">
-                                  <input type="text" class="form-control" name="sessionDetails" value="<?php echo $row['sessionDetails'];?>" readonly >
+                                  <input type="text" class="form-control" name="sessionDetails" value="<?php echo $row['origin'];?>" readonly >
                               </div>
                           </div>
 							   
 							<div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Posted Date</label>
+                              <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Travel Date</label>
                               <div class="col-sm-10">
-                                  <input type="text" class="form-control" name="postedDate" value="<?php echo $row['postedDate'];?>" readonly >
+                                  <input type="text" class="form-control" name="postedDate" value="<?php echo $row['bookingDate'];?>" readonly >
                               </div>
                           </div>
 
 							  <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Mentor</label>
+                              <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Destination</label>
                               <div class="col-sm-10">
-                                  <input type="text" class="form-control" name="Mentor" value="<?php echo $row['Mentor'];?>" >
+                                  <input type="text" class="form-control" name="Mentor" value="<?php echo $row['destination'];?>" readonly>
                               </div>
                           </div> 
 							   
@@ -97,17 +93,19 @@ $_SESSION['msg']="Booking Updated successfully";
                               <div class="col-sm-10">
                                    <select class="form-control" name="Status">
 									  <?php
-	   										if($row['Status'] == "Approved")
+	   										if($row['status'] == "Approved")
 											{
 												
-												echo '<option value="'.$row['Status'].'" hidden="">'. strtoupper($row['Status']) .'</option>';
+												echo '<option value="'.$row['status'].'" hidden="">'. strtoupper($row['status']) .'</option>';
 												echo '<option value="Pending">PENDING</option>';
+                                                echo '<option value="Cancel">Cancel</option>';
 											}
 	   										else
 											{
 												
-												echo '<option value="'.$row['Status'].'" hidden="">'. strtoupper($row['Status']) .'</option>';
-												echo '<option value="Approved">APPROVE</option>';
+												echo '<option value="'.$row['status'].'" hidden="">'. strtoupper($row['status']) .'</option>';
+												echo '<option value="Boarded">Boarded</option>';
+                                                echo '<option value="Cancel">Cancel</option>';
 											}
 											?>
 									  
