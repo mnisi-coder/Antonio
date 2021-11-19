@@ -183,8 +183,7 @@ https://dribbble.com/shots/14101951-Banners
 -->
 <div class="main-container">
   <div class="heading">
-    <h1 class="heading__title">Gradient Banner Cards</h1>
-    <p class="heading__credits"><a class="heading__link" target="_blank" href="https://dribbble.com/sl">Design by Simon Lurwer on Dribbble</a></p>
+    
   </div>
   <div class="cards">
     <div class="card card-1" data-toggle="modal" data-target="#exampleModal">
@@ -252,7 +251,7 @@ https://dribbble.com/shots/14101951-Banners
 								  <td><?php echo $row['reference'];?></td>
 								  <td><?php echo $row['email'];?></td>
 								  
-								 
+                  
 								 
 								   <?php if($row['status']== "Boarder" ||$row['status']== "boarded" || $row['status']== "BOARDED")
 								  {

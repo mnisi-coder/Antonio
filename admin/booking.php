@@ -85,7 +85,7 @@ if(isset($_GET['id']))
 								  
 								 
 								 
-								   <?php if($row['status']== "Boarder" ||$row['status']== "boarded" || $row['status']== "BOARDED")
+								   <?php if($row['status'] == "Boarded" ||$row['status'] == "boarded" || $row['status'] == "BOARDED")
 								  {
 								  	echo '<td style="color: aliceblue; background: green;">'.$row['status'].'</td>';
 								  }else{
